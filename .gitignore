@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+
+# Large binaries: dataset caches + model checkpoints
+*.pt
+checkpoints/
+
+seed_log.txt
+
+# NOT ignored on purpose: logs/, plots/, history/ hold the run's numbers,
+# figures and training curves.

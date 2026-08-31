@@ -1,0 +1,16 @@
+# Install torch FIRST, matching your CUDA driver, e.g.:
+#   pip install "torch>=2.6" --index-url https://download.pytorch.org/whl/cu121
+# torch is not listed here — pinning it wrong for the box's CUDA driver
+# breaks GPU support, so it must be installed by hand for the target machine.
+# Two independent floors from transformers>=4.57, both hit on real GPU boxes:
+#   - torch<2.5: is_torch_available() silently returns False (looks like
+#     torch isn't installed at all, even though `import torch` works)
+#   - torch<2.6: loading ANY checkpoint raises CVE-2025-32434's
+#     check_torch_load_is_safe(), even for safetensors-backed models
+transformers>=4.57
+pymupdf
+scikit-learn
+numpy
+tqdm
+matplotlib
+pytest
